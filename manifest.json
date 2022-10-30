@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Linkedin autofill HackerRank certificate",
+  "version": "1.0",
+  "description": "Autofills your HackerRank certificate data on Linkedin.",
+  "icons": {
+    "48": "icons/hackerrank-linkedin.ico"
+  },
+  "action": {
+    "default_icon": "icons/hackerrank-linkedin.ico",
+    "default_title": "Linkedin autofill HackerRank certificate"
+  },
+  "permissions": ["activeTab", "storage", "clipboardRead", "clipboardWrite"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.hackerrank.com/certificates*"],
+      "js": ["content_scripts/getHackerRankCertificateData.js"]
+    },
+    {
+      "matches": ["*://www.linkedin.com/*/edit/forms/certification/new*"],
+      "js": ["content_scripts/setLinkedinCertificateData.js"]
+    }
+  ]
+}
