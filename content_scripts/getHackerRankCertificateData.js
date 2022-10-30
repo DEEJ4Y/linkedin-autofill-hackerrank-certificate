@@ -1,5 +1,4 @@
-window.onload = function () {
-  document.readyState;
+function getAndSetHackerRankCertificateData() {
   if (typeof browser === "undefined") {
     var browser = chrome;
   }
@@ -21,4 +20,6 @@ window.onload = function () {
     () => console.log("set data"),
     () => console.log("fail set data")
   );
-};
+}
+
+window.onload = getAndSetHackerRankCertificateData;

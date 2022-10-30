@@ -2,6 +2,7 @@ window.onload = function () {
   if (typeof browser === "undefined") {
     var browser = chrome;
   }
+
   browser.storage.local.get(["certificateData"]).then(
     function (data) {
       if (data.certificateData) {
@@ -50,8 +51,12 @@ window.onload = function () {
         });
 
         const date = new Date();
+
         selects[0].value = (date.getMonth() + 1).toString();
+        selects[0].dispatchEvent(new Event("change"));
+
         selects[1].value = date.getFullYear().toString();
+        selects[1].dispatchEvent(new Event("change"));
 
         inputs[1].scrollIntoView();
         inputs[1].focus();
